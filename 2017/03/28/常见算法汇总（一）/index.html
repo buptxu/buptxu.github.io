@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 前端学习</title>
+  <title>常见算法汇总(一) | 前端学习</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="写这篇文章是因为之前学了一些常见算法，并随手记录了下来，然而当时并没有博客，这不，有了博客马上放上来了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见算法汇总(一)">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/常见算法汇总（一）/index.html">
 <meta property="og:site_name" content="前端学习">
+<meta property="og:description" content="写这篇文章是因为之前学了一些常见算法，并随手记录了下来，然而当时并没有博客，这不，有了博客马上放上来了">
+<meta property="og:updated_time" content="2017-03-28T04:41:29.266Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习">
+<meta name="twitter:title" content="常见算法汇总(一)">
+<meta name="twitter:description" content="写这篇文章是因为之前学了一些常见算法，并随手记录了下来，然而当时并没有博客，这不，有了博客马上放上来了">
   
     <link rel="alternative" href="/atom.xml" title="前端学习" type="application/atom+xml">
   
@@ -151,85 +155,80 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-常见算法汇总（一）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/前端打乱炖（转）/" class="archive-article-date">
-  	<time datetime="2017-03-28T01:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/前端打乱炖（转）/">前端知识大乱炖（转）</a>
+    <h1 class="article-title" itemprop="name">
+      常见算法汇总(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/指路/" class="article-tag-list-link color3">指路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/常见算法汇总（一）/" class="archive-article-date">
+        
+        <a href="/2017/03/28/常见算法汇总（一）/" class="archive-article-date">
   	<time datetime="2017-03-28T01:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/常见算法汇总（一）/">常见算法汇总(一)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>写这篇文章是因为之前学了一些常见算法，并随手记录了下来，然而当时并没有博客，这不，有了博客马上放上来了</em><br><a id="more"></a><br><strong>1. 数组去重</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function delRepeat(arr)&#123;</div><div class="line">  var newArray=new Array();</div><div class="line">  var len=arr.length;</div><div class="line">  for(var i=0;i&lt;len;i++)&#123;</div><div class="line">     for(var j=i+1;j&lt;len;j++)</div><div class="line">     &#123;</div><div class="line">       if(arr[i]==arr[j])</div><div class="line">       &#123;</div><div class="line">         ++i;  </div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line">    newArray.push(arr[i]);</div><div class="line">  &#125;</div><div class="line"> return newArray;</div><div class="line">&#125;</div><div class="line">var arr=new Array(&quot;red&quot;,&quot;red&quot;,&quot;1&quot;,&quot;5&quot;,&quot;2&quot;);</div><div class="line">alert(delRepeat(arr));</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>2.求字符串长度的方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function GetBytes(str)&#123;</div><div class="line">    var len=str.length,</div><div class="line">        bytes=len;</div><div class="line">    for(var i=0;i&lt;len;i++)&#123;</div><div class="line">        if(str.CharCodeAt&gt;255)&#123;</div><div class="line">            bytes++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return bytes;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.二分法</strong> </p>
+<p>又称为折半查找算法，但是有缺陷就是要求数字是预先排序好的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function binary(items,value)&#123;</div><div class="line"> var startIndex=0,</div><div class="line">     stopIndex=items.length-1,</div><div class="line">     midlleIndex=(startIndex+stopIndex)&gt;&gt;&gt;1;</div><div class="line">     while(items[middleIndex]!=value &amp;&amp; startIndex&lt;stopIndex)&#123;</div><div class="line">       if(items[middleIndex]&gt;value)&#123;</div><div class="line">          stopIndex=middleIndex-1;</div><div class="line">       &#125;else&#123;</div><div class="line">          startIndex=middleIndex+1;</div><div class="line">       &#125;</div><div class="line">       middleIndex=(startIndex+stopIndex)&gt;&gt;&gt;1;</div><div class="line">     &#125;</div><div class="line">     return items[middleIndex]!=value ? false:true;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>4.实现递归</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function factorial(num)&#123;</div><div class="line">    if(num&lt;=1)&#123;</div><div class="line">        return 1; </div><div class="line">    &#125;else&#123;</div><div class="line">        return num*factorial(num-1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是这在js里面可能会出现错误，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var anotherFactorial = factorial;</div><div class="line">factorial=null;</div><div class="line">alert(anoterFactorial(4));</div></pre></td></tr></table></figure>
+<p>因为在调用anoterFactorial时内部的factorial已经不存在了。<br>解决方法是通过arguments.callee来解决。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function factorial(num)&#123;</div><div class="line">    if(num&lt;=1)&#123;</div><div class="line">        return 1;</div><div class="line">    &#125;else&#123;</div><div class="line">        return num*arguments.callee(num-1);</div><div class="line">    &#125;</div><div class="line">    var anotherFactorial = factorial;</div><div class="line">    factorial = null;</div><div class="line">    alert(anotherFactorial(4));//成功！！！</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>5.冒泡排序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function bullSort(array)&#123;</div><div class="line">    var temp;</div><div class="line">    for(var i=0;i&lt;array.length;i++)&#123;</div><div class="line">        for(var j=array.length-1;j&gt;i;j--)&#123;</div><div class="line">            if(array[j]&lt;array[j-1])&#123;</div><div class="line">                temp = array[j];</div><div class="line">                array[j]=array[j-1];</div><div class="line">                array[j-1]=temp;</div><div class="line">            &#125;</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">    return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>6.快速排序</strong></p>
+<p>其实说到底快速排序算法就系对冒泡排序的一种改进，采用的就是算法理论中的分治递归的思想,做法就是：通过一趟排序将待排序的纪录分割成两部分，其中一部分的纪录值比另外一部分的纪录值要小，就可以继续分别对这两部分纪录进行排序；不段的递归实施上面两个操作，从而实现纪录值的排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function sort(arr)&#123;</div><div class="line">    return quickSort(arr,0,arr.length-1);</div><div class="line">    function quickSort(arr,l,r)&#123;</div><div class="line">        if(l&lt;r)&#123;</div><div class="line">            var mid=arr[parseInt((l+r)/2)],i=l-1,j=r+1;</div><div class="line">            while(true)&#123;</div><div class="line">            //大的放到右边，小的放到左边, i与j均为游标</div><div class="line">            while(arr[++i]&lt;mid);</div><div class="line">            while(arr[--j]&gt;mid);</div><div class="line">            if(i&gt;=j)break;//判断条件</div><div class="line">                var temp = arr[i];</div><div class="line">                arr[i]=arr[j];</div><div class="line">                arr[j]=temp;</div><div class="line">            &#125; </div><div class="line">            quickSort(arr,l,i-1);</div><div class="line">            quickSort(arr,j+1,r);</div><div class="line">        &#125;   </div><div class="line">        return arr;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function main()&#123;</div><div class="line">    var list=new Array(49,38,65,97,76,13,27);</div><div class="line">    document.write(sort(list).valueOf());</div><div class="line">&#125;</div><div class="line">main();</div></pre></td></tr></table></figure>
+<p><strong>7.插入排序</strong></p>
+<p>即将序列中的第一个元素看成一个有序的子序列，然后不段向后比较交换比较交换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function insertSort(arr)&#123;</div><div class="line">    var key;</div><div class="line">    for(var j = 1; j &lt; arr.length ; j++)&#123; </div><div class="line">        //排好序的</div><div class="line">        var i = j - 1;</div><div class="line">        key = arr[j];</div><div class="line">        while(i &gt;= 0 &amp;&amp; arr[i] &gt; key)&#123;  </div><div class="line">            arr[i + 1] = arr[i];       </div><div class="line">            i --;        </div><div class="line">    &#125;</div><div class="line">        arr[i + 1] = key;</div><div class="line">  &#125;</div><div class="line"> return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>8.希尔排序</strong></p>
+<p>也称递减增量排序算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">function shellSort(array)&#123;</div><div class="line">   var stepArr = [1750, 701, 301, 132, 57, 23, 10, 4, 1]; // reverse()在维基上看到这个最优的步长较小数组</div><div class="line">    var i = 0;</div><div class="line">    var stepArrLength = stepArr.length;</div><div class="line">    var len = array.length;</div><div class="line">    var len2 =  parseInt(len/2);</div><div class="line">    for(;i &lt; stepArrLength; i++)&#123;</div><div class="line">        if(stepArr[i] &gt; len2)&#123;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        stepSort(stepArr[i]);</div><div class="line">    &#125;</div><div class="line">    // 排序一个步长</div><div class="line">    function stepSort(step)&#123;  </div><div class="line">        //console.log(step) 使用的步长统计</div><div class="line">        var i = 0, j = 0, f, tem, key;</div><div class="line">        var stepLen = len%step &gt; 0 ?  parseInt(len/step) + 1 : len/step; </div><div class="line">        for(;i &lt; step; i++)&#123;</div><div class="line">            // 依次循环列</div><div class="line">            for(j=1;/*j &lt; stepLen &amp;&amp; */step * j + i &lt; len; j++)&#123;</div><div class="line">                //依次循环每列的每行</div><div class="line">                tem = f = step * j + i;</div><div class="line">                key = array[f];</div><div class="line"></div><div class="line">                while((tem-=step) &gt;= 0)&#123;</div><div class="line">                // 依次向上查找</div><div class="line">                    if(array[tem] &gt; key)&#123;</div><div class="line">                        array[tem+step] =     array[tem];</div><div class="line">                    &#125;else&#123;</div><div class="line">                        break;</div><div class="line">                    &#125;</div><div class="line">                &#125;    </div><div class="line">                array[tem + step ] = key;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -241,7 +240,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -254,17 +253,110 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/28/常见算法汇总（一）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/前端打乱炖（转）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          前端知识大乱炖（转）
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
+
+  
+  <div class="duoshuo">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+	var cloudTieConfig = {
+	  url: document.location.href, 
+	  sourceId: "",
+	  productKey: "2f8bd6b3a8bc46148e88eb29012249f2",
+	  target: "cloud-tie-wrapper"
+	};
+	var yunManualLoad = true;
+	Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+
+  
+
+
 
 
           </div>
@@ -284,8 +376,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
