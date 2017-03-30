@@ -153,6 +153,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-常见算法汇总（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/30/常见算法汇总（三）/">常见js算法汇总(三)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/30/常见算法汇总（三）/" class="archive-article-date">
+  	<time datetime="2017-03-30T12:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>基数排序有两种方法：</p>
+<ul>
+<li>MSD 从高位开始进行排序</li>
+<li>LSD 从低位开始进行排序
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/30/常见算法汇总（三）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-常见算法汇总（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -210,107 +288,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/03/29/常见算法汇总（二）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-常见算法汇总（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/常见算法汇总（三）/">常见js算法汇总(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/28/常见算法汇总（三）/" class="archive-article-date">
-  	<time datetime="2017-03-28T12:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>基数排序有两种方法：</p>
-<ul>
-<li>MSD 从高位开始进行排序</li>
-<li>LSD 从低位开始进行排序</li>
-</ul>
-<hr>
-<ul>
-<li><1>.取得数组中的最大数，并取得位数；</1></li>
-<li><2>.arr为原始数组，从最低位开始取每个位组成radix数组；</2></li>
-<li><3>.对radix进行计数排序（利用计数排序适用于小范围数的特点）；</3></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 基数排序适用于：</div><div class="line"> *  (1)数据范围较小，建议在小于1000</div><div class="line"> *  (2)每个数值都要大于等于0</div><div class="line"> * @author xiazdong</div><div class="line"> * @param  arr 待排序数组</div><div class="line"> * @param  maxDigit 最大位数</div><div class="line">*/</div><div class="line"><span class="comment">//LSD Radix Sort</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">radixSort</span>(<span class="params">arr,maxDigit</span>)</span>&#123;</div><div class="line">    varmod=<span class="number">10</span>;</div><div class="line">    vardev=<span class="number">1</span>;</div><div class="line">    varcounter=[];</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'基数排序耗时'</span>);</div><div class="line">    <span class="keyword">for</span>(vari=<span class="number">0</span>;i&lt;maxDigit;i++,dev*=<span class="number">10</span>,mod*=<span class="number">10</span>)&#123;</div><div class="line">        <span class="keyword">for</span>(varj=<span class="number">0</span>;j&lt;arr.length;j++)&#123;</div><div class="line">            varbucket=<span class="built_in">parseInt</span>((arr[j]%mod)/dev);</div><div class="line">            <span class="keyword">if</span>(counter[bucket]==<span class="literal">null</span>)&#123;</div><div class="line">                counter[bucket]=[];</div><div class="line">            &#125;</div><div class="line">            counter[bucket].push(arr[j]);</div><div class="line">        &#125;</div><div class="line">        varpos=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(varj=<span class="number">0</span>;j&lt;counter.length;j++)&#123;</div><div class="line">            varvalue=<span class="literal">null</span>;</div><div class="line">            <span class="keyword">if</span>(counter[j]!=<span class="literal">null</span>)&#123;</div><div class="line">                <span class="keyword">while</span>((value=counter[j].shift())!=<span class="literal">null</span>)&#123;</div><div class="line">                    arr[pos++]=value;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'基数排序耗时'</span>);</div><div class="line">    returnarr;</div><div class="line">&#125;</div><div class="line">vararr=[<span class="number">3</span>,<span class="number">44</span>,<span class="number">38</span>,<span class="number">5</span>,<span class="number">47</span>,<span class="number">15</span>,<span class="number">36</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">2</span>,<span class="number">46</span>,<span class="number">4</span>,<span class="number">19</span>,<span class="number">50</span>,<span class="number">48</span>];</div><div class="line"><span class="built_in">console</span>.log(radixSort(arr,<span class="number">2</span>));<span class="comment">//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</span></div></pre></td></tr></table></figure>
-<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><p>最佳情况：T(n) = O(n+k)<br>最差情况：T(n) = O(n+k)<br>平均情况：T(n) = O(n+k)</p>
-<p><1>. 找出待排序的数组中最大和最小的元素；</1></p>
-<p><2>. 统计数组中每个值为i的元素出现的次数，存入数组C的第i项；</2></p>
-<p><3>. 对所有的计数累加（从C中的第一个元素开始，每一项和前一项相加）；</3></p>
-<p><4>. 反向填充目标数组：将每个元素i放在新数组的第C(i)项，每放一个元素就将C(i)减去1。</4></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">countingSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> len = array.length,</div><div class="line">        B = [],</div><div class="line">        C = [],</div><div class="line">        min = max = array[<span class="number">0</span>];</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'计数排序耗时'</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">        min = min &lt;= array[i] ? min : array[i];</div><div class="line">        max = max &gt;= array[i] ? max : array[i];</div><div class="line">        C[array[i]] = C[array[i]] ? C[array[i]] + <span class="number">1</span> : <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = min; j &lt; max; j++) &#123;</div><div class="line">        C[j + <span class="number">1</span>] = (C[j + <span class="number">1</span>] || <span class="number">0</span>) + (C[j] || <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k = len - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</div><div class="line">        B[C[array[k]] - <span class="number">1</span>] = array[k];</div><div class="line">        C[array[k]]--;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'计数排序耗时'</span>);</div><div class="line">    <span class="keyword">return</span> B;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">5</span>];</div><div class="line"><span class="built_in">console</span>.log(countingSort(arr));</div></pre></td></tr></table></figure>
-<h1 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h1><p>最佳情况：T(n) = O(n+k)<br>最差情况：T(n) = O(n+k)<br>平均情况：T(n) = O(n2)</p>
-<p><1>.设置一个定量的数组当作空桶；</1></p>
-<p><2>.遍历输入数据，并且把数据一个一个放到对应的桶里去；</2></p>
-<p><3>.对每个不是空的桶进行排序；</3></p>
-<p><4>.从不是空的桶里把排好序的数据拼接起来。</4></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*方法说明：桶排序</span></div><div class="line">@param  array 数组</div><div class="line">@param  num   桶的数量*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bucketSort</span>(<span class="params">array, num</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (array.length &lt;= <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> array;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> len = array.length, buckets = [], result = [], min = max = array[<span class="number">0</span>], regex = <span class="string">'/^[1-9]+[0-9]*$/'</span>, space, n = <span class="number">0</span>;</div><div class="line">    num = num || ((num &gt; <span class="number">1</span> &amp;&amp; regex.test(num)) ? num : <span class="number">10</span>);</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'桶排序耗时'</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</div><div class="line">        min = min &lt;= array[i] ? min : array[i];</div><div class="line">        max = max &gt;= array[i] ? max : array[i];</div><div class="line">    &#125;</div><div class="line">    space = (max - min + <span class="number">1</span>) / num;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</div><div class="line">        <span class="keyword">var</span> index = <span class="built_in">Math</span>.floor((array[j] - min) / space);</div><div class="line">        <span class="keyword">if</span> (buckets[index]) &#123;   </div><div class="line">            <span class="comment">//非空桶，插入排序</span></div><div class="line">            <span class="keyword">var</span> k = buckets[index].length - <span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (k &gt;= <span class="number">0</span> &amp;&amp; buckets[index][k] &gt; array[j]) &#123;</div><div class="line">                buckets[index][k + <span class="number">1</span>] = buckets[index][k];</div><div class="line">                k--;</div><div class="line">            &#125;</div><div class="line">            buckets[index][k + <span class="number">1</span>] = array[j];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;    </div><div class="line">            <span class="comment">//空桶，初始化</span></div><div class="line">            buckets[index] = [];</div><div class="line">            buckets[index].push(array[j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (n &lt; num) &#123;</div><div class="line">        result = result.concat(buckets[n]);</div><div class="line">        n++;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'桶排序耗时'</span>);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">3</span>,<span class="number">44</span>,<span class="number">38</span>,<span class="number">5</span>,<span class="number">47</span>,<span class="number">15</span>,<span class="number">36</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">2</span>,<span class="number">46</span>,<span class="number">4</span>,<span class="number">19</span>,<span class="number">50</span>,<span class="number">48</span>];</div><div class="line"><span class="built_in">console</span>.log(bucketSort(arr,<span class="number">4</span>));</div></pre></td></tr></table></figure>
-<p><strong>基数排序 vs 计数排序 vs 桶排序</strong></p>
-<p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：</p>
-<p>基数排序：根据键值的每位数字来分配桶<br>计数排序：每个桶只存储单一键值<br>桶排序： 每个桶存储一定范围的数值</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/28/常见算法汇总（三）/">展开全文 >></a>
         </p>
       
 
@@ -568,11 +545,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
