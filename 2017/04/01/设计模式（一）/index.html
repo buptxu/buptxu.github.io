@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 前端学习</title>
+  <title>js设计模式(一) | 前端学习</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="包括单例模式，策略模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js设计模式(一)">
+<meta property="og:url" content="http://yoursite.com/2017/04/01/设计模式（一）/index.html">
 <meta property="og:site_name" content="前端学习">
+<meta property="og:description" content="包括单例模式，策略模式">
+<meta property="og:updated_time" content="2017-04-01T10:21:05.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习">
+<meta name="twitter:title" content="js设计模式(一)">
+<meta name="twitter:description" content="包括单例模式，策略模式">
   
     <link rel="alternative" href="/atom.xml" title="前端学习" type="application/atom+xml">
   
@@ -151,36 +155,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-设计模式（一）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/01/设计模式（一）/" class="archive-article-date">
-  	<time datetime="2017-04-01T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/01/设计模式（一）/">js设计模式(一)</a>
+    <h1 class="article-title" itemprop="name">
+      js设计模式(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/01/设计模式（一）/" class="archive-article-date">
+  	<time datetime="2017-04-01T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>包括单例模式，策略模式</em><br><a id="more"></a> </p>
+</blockquote>
+<h2 id="1-单例模式"><a href="#1-单例模式" class="headerlink" title="1.单例模式"></a>1.单例模式</h2><p>单例模式的核心是确保只有一个实例，并提供全局访问<br>在js中，全局变量也符合这两个条件，就是说可以当成单例使用如var a = {},但是它很容易造成命名空间污染，随时有可能被覆盖，我们应尽量减少全局变量的使用<br>方法有：<br>1.使用命名空间<br>2.使用闭包封装私有变量</p>
+<p>通用的惰性单例<br>    例子：新建一个登录div</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//业务逻辑（创建对象）</span></div><div class="line"><span class="keyword">var</span> createLoginLayer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">	div.innerHTML = <span class="string">'我是登录浮窗'</span>;</div><div class="line">	div.style.display = <span class="string">'none'</span>;</div><div class="line">	<span class="built_in">document</span>.body.appendChild(div);</div><div class="line">	<span class="keyword">return</span> div;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//创建单例</span></div><div class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params"> fn </span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> result;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> result||( result = fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>) );</div><div class="line">	&#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> createSingleLoginLayer = getSingle(createLoginLayer);</div><div class="line"></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'loginbtn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> loginLayer = createSingleLoginLayer();</div><div class="line">	loginLayer.style.display = <span class="string">'block'</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>单例模式是比较简单却很实用的模式，特别是惰性单例技术，在合适的时候才创建对象，并且只创建唯一的一个。奇妙的是，创建对象和管理单例的职责分布在两个方法中，两个方法组合才具有单例模式的威力。</p>
+<h2 id="2-策略模式"><a href="#2-策略模式" class="headerlink" title="2.策略模式"></a>2.策略模式</h2><pre><code>定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换
+例子：元素（小球）页面中运动
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//运动算法</span></div><div class="line"><span class="keyword">var</span> tween =&#123;</div><div class="line">	<span class="attr">linear</span>:<span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> c*t/d + b;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">easeIn</span>:<span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> c*(t/=d)*t+b;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">strongEaseIn</span>:<span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> c*(t/=d)*t*t*t*t +b;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">strongEaseOut</span>:<span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> c*((t=t/d<span class="number">-1</span>)*t*t*t*t+<span class="number">1</span>) +b;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">sineasIn</span>:<span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> c*(t/=d)*t*t +b;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">sineasOut</span>:<span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> c*((t=t/d<span class="number">-1</span>)*t*t+<span class="number">1</span>) +b;</div><div class="line">	&#125;,</div><div class="line">&#125;;</div><div class="line"><span class="comment">//运动的元素节点</span></div><div class="line"><span class="keyword">var</span> Animate = <span class="function"><span class="keyword">function</span>(<span class="params">dom</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.dom = dom;</div><div class="line">	<span class="keyword">this</span>.startTime = <span class="number">0</span>;</div><div class="line">	<span class="keyword">this</span>.startPos = <span class="number">0</span>;</div><div class="line">	<span class="keyword">this</span>.endPos = <span class="number">0</span>;</div><div class="line">	<span class="keyword">this</span>.propertyName = <span class="literal">null</span>;</div><div class="line">	<span class="keyword">this</span>.easing = <span class="literal">null</span>;</div><div class="line">	<span class="keyword">this</span>.duration = <span class="literal">null</span>;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 启动/停止动画，记录信息</span></div><div class="line">Animate.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params">propertyName,endPos,duration,easing</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.startTime = +<span class="keyword">new</span> <span class="built_in">Date</span>; <span class="comment">//启动时间</span></div><div class="line">	<span class="keyword">this</span>.startPos = <span class="keyword">this</span>.dom.getBoundingClientRect()[propertyName]; <span class="comment">//初始位置</span></div><div class="line">	<span class="keyword">this</span>.propertyName = propertyName;	<span class="comment">//改变的CSS属性</span></div><div class="line">	<span class="keyword">this</span>.endPos = endPos;	<span class="comment">//目标位置</span></div><div class="line">	<span class="keyword">this</span>.duration = duration;	<span class="comment">//持续时间</span></div><div class="line">	<span class="keyword">this</span>.easing = tween[easing];		<span class="comment">//运动算法</span></div><div class="line">	<span class="keyword">var</span> self =<span class="keyword">this</span>;</div><div class="line">	<span class="keyword">var</span> timeId = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">if</span>(self.step() === <span class="literal">false</span>)&#123;</div><div class="line">			clearInterval(timeId);</div><div class="line">		&#125;</div><div class="line">	&#125;,<span class="number">19</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//每一帧做的操作</span></div><div class="line">Animate.prototype.step = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> t =+<span class="keyword">new</span> <span class="built_in">Date</span>;</div><div class="line">	<span class="keyword">if</span> (t &gt;= <span class="keyword">this</span>.startTime+<span class="keyword">this</span>.duration) &#123;</div><div class="line">		<span class="keyword">this</span>.update(<span class="keyword">this</span>.endPos); <span class="comment">//更新位置</span></div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> pos = <span class="keyword">this</span>.easing(t-<span class="keyword">this</span>.startTime,<span class="keyword">this</span>.startPos,<span class="keyword">this</span>.endPos-<span class="keyword">this</span>.startPos,<span class="keyword">this</span>.duration); <span class="comment">//运动算法</span></div><div class="line">	<span class="keyword">this</span>.update(pos);</div><div class="line">&#125;;</div><div class="line">Animate.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params">pos</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.dom.style[<span class="keyword">this</span>.propertyName] = pos +<span class="string">'px'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">var</span> animate = <span class="keyword">new</span> Animate(div);</div><div class="line">animate.start(<span class="string">'left'</span>,<span class="number">500</span>,<span class="number">1000</span>,<span class="string">'strongEaseOut'</span>);</div></pre></td></tr></table></figure>
+<pre><code>策略模式是一种常见且有效的设计模式，他的优点有：
+</code></pre><ol>
+<li>利用组合，委托和多态等技术思想，有效避免多重条件选择语句</li>
+<li>提供对开放-封闭原则的支持，将算法封装在独立的strategy中，方便切换</li>
+<li>算法可以复用在系统的其他地方，避免重复复制</li>
+<li>利用组合和委托让context拥有执行算法的能力，这是继承的一种替代方案<br>缺点：程序会增加许多策略类或对象；必须了解各个strategy之间的不同点，才能选择合适的strategy；</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,7 +232,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -205,213 +245,106 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/01/设计模式（一）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/30/常见算法汇总（三）/" class="archive-article-date">
-  	<time datetime="2017-03-30T12:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/30/常见算法汇总（三）/">常见js算法汇总(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/29/常见算法汇总（二）/" class="archive-article-date">
-  	<time datetime="2017-03-29T03:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/29/常见算法汇总（二）/">常见js算法汇总(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/常见算法汇总（一）/" class="archive-article-date">
-  	<time datetime="2017-03-28T07:19:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/常见算法汇总（一）/">常见算法汇总(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/前端打乱炖（转）/" class="archive-article-date">
-  	<time datetime="2017-03-28T01:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/前端打乱炖（转）/">前端知识大乱炖（转）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/指路/" class="article-tag-list-link color3">指路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/03/30/常见算法汇总（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见js算法汇总(三)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
+
+  
+  <div class="duoshuo">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+	var cloudTieConfig = {
+	  url: document.location.href, 
+	  sourceId: "",
+	  productKey: "2f8bd6b3a8bc46148e88eb29012249f2",
+	  target: "cloud-tie-wrapper"
+	};
+	var yunManualLoad = true;
+	Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+
+  
+
+
 
 
           </div>
@@ -431,8 +364,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
