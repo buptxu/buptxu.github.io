@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>常见js算法汇总(二) | 前端学习</title>
+  <title>BFC | 前端学习</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="接着上一篇博客,选择排序与归并排序">
+  <meta name="description" content="块级格式化上下文(BFC)与边距折叠">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见js算法汇总(二)">
-<meta property="og:url" content="http://yoursite.com/2017/03/29/常见算法汇总（二）/index.html">
+<meta property="og:title" content="BFC">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/BFC与外边距折叠/index.html">
 <meta property="og:site_name" content="前端学习">
-<meta property="og:description" content="接着上一篇博客,选择排序与归并排序">
-<meta property="og:updated_time" content="2017-03-29T03:32:49.669Z">
+<meta property="og:description" content="块级格式化上下文(BFC)与边距折叠">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V141cV081qNE1l/OV*4V6VbyWRgiwtiTtypN7*QhG7D1CapRGtgMPcFnl4!/m/dGkBAAAAAAAAnull&bo=XQImAQAAAAADB1o!&rf=photolist&t=5">
+<meta property="og:updated_time" content="2017-04-10T02:42:15.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见js算法汇总(二)">
-<meta name="twitter:description" content="接着上一篇博客,选择排序与归并排序">
+<meta name="twitter:title" content="BFC">
+<meta name="twitter:description" content="块级格式化上下文(BFC)与边距折叠">
+<meta name="twitter:image" content="http://a2.qpic.cn/psb?/V141cV081qNE1l/OV*4V6VbyWRgiwtiTtypN7*QhG7D1CapRGtgMPcFnl4!/m/dGkBAAAAAAAAnull&bo=XQImAQAAAAADB1o!&rf=photolist&t=5">
   
     <link rel="alternative" href="/atom.xml" title="前端学习" type="application/atom+xml">
   
@@ -155,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-常见算法汇总（二）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BFC与外边距折叠" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      常见js算法汇总(二)
+      BFC
     </h1>
   
 
         
-        <a href="/2017/03/29/常见算法汇总（二）/" class="archive-article-date">
-  	<time datetime="2017-03-29T03:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-29</time>
+        <a href="/2017/04/08/BFC与外边距折叠/" class="archive-article-date">
+  	<time datetime="2017-04-08T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
 </a>
         
       </header>
@@ -176,31 +178,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p><em>接着上一篇博客,选择排序与归并排序</em><br><a id="more"></a> </p>
-<h1 id="选择法排序"><a href="#选择法排序" class="headerlink" title="选择法排序"></a>选择法排序</h1><p>选择法主要有三种：</p>
+<p><em>块级格式化上下文(BFC)与边距折叠</em><br><a id="more"></a> </p>
 </blockquote>
-<hr>
-<p>. 简单的选择排序：<br>其实基本的思想就是从待排序的数组中选择最小或者最大的，放在起始位置，然后从剩下的数组中选择最小或者最大的排在这公司数的后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, min, temp , count=data.length;</div><div class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="comment">// find the minimum</span></div><div class="line">        min = i;</div><div class="line">        <span class="keyword">for</span> (j = i+<span class="number">1</span>; j &lt; count; j++)&#123;    </div><div class="line">            <span class="keyword">if</span> (data[j] &lt; data[min])&#123; </div><div class="line">                min = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// swap data[i] and data[min]</span></div><div class="line">        temp = data[i];</div><div class="line">        data[i] = data[min];</div><div class="line">        data[min] = temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>树型排序：<br>又称锦标赛排序，首先对n个元素进行两两比较，然后在其中[n/2]个较小者再进行两两比较如此重复直至选出最小的关键字的纪录为止。（可用完全二差树表示）。缺点：辅助空间需求过大，和“最大值”进行多余比较<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>堆排序：（不适用于纪录数较少的文件）</li>
-</ul>
-<p>最佳情况：T(n) = O(nlogn)<br>最差情况：T(n) = O(nlogn)<br>平均情况：T(n) = O(nlogn)</p>
-<p><1>.将初始待排序关键字序列(R1,R2….Rn)构建成大顶堆，此堆为初始的无序区；</1></p>
-<p><2>.将堆顶元素R[1]与最后一个元素R[n]交换，此时得到新的无序区(R1,R2,……Rn-1)和新的有序区(Rn),且满足R[1,2…n-1]&lt;=R[n]；</2></p>
-<p><3>.由于交换后新的堆顶R[1]可能违反堆的性质，因此需要对当前无序区(R1,R2,……Rn-1)调整为新堆，然后再次将R[1]与无序区最后一个元素交换，得到新的无序区(R1,R2….Rn-2)和新的有序区(Rn-1,Rn)。不断重复此过程直到有序区的元素个数为n-1，则整个排序过程完成。</3></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*方法说明：堆排序</span></div><div class="line">@param  array 待排序数组*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'堆排序耗时'</span>);</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(array).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span>) &#123;</div><div class="line">        <span class="comment">//建堆</span></div><div class="line">        <span class="keyword">var</span> heapSize = array.length, temp;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="built_in">Math</span>.floor(heapSize / <span class="number">2</span>) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            heapify(array, i, heapSize);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//堆排序</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = heapSize - <span class="number">1</span>; j &gt;= <span class="number">1</span>; j--) &#123;</div><div class="line">            temp = array[<span class="number">0</span>];</div><div class="line">            array[<span class="number">0</span>] = array[j];</div><div class="line">            array[j] = temp;</div><div class="line">            heapify(array, <span class="number">0</span>, --heapSize);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">'堆排序耗时'</span>);</div><div class="line">        <span class="keyword">return</span> array;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'array is not an Array!'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*方法说明：维护堆的性质</span></div><div class="line">@param  arr 数组</div><div class="line">@param  x   数组下标</div><div class="line">@param  len 堆大小*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapify</span>(<span class="params">arr, x, len</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(arr).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span> &amp;&amp; <span class="keyword">typeof</span> x === <span class="string">'number'</span>)&#123;</div><div class="line">        <span class="keyword">var</span> l = <span class="number">2</span> * x + <span class="number">1</span>, r = <span class="number">2</span> * x + <span class="number">2</span>, largest = x, temp;</div><div class="line">        <span class="keyword">if</span> (l &lt; len &amp;&amp; arr[l] &gt; arr[largest]) &#123;</div><div class="line">            largest = l;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (r &lt; len &amp;&amp; arr[r] &gt; arr[largest]) &#123;</div><div class="line">            largest = r;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (largest != x) &#123;</div><div class="line">            temp = arr[x];</div><div class="line">            arr[x] = arr[largest];</div><div class="line">            arr[largest] = temp;</div><div class="line">            heapify(arr, largest, len);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'arr is not an Array or x is not a number!'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">91</span>,<span class="number">60</span>,<span class="number">96</span>,<span class="number">13</span>,<span class="number">35</span>,<span class="number">65</span>,<span class="number">46</span>,<span class="number">65</span>,<span class="number">10</span>,<span class="number">30</span>,<span class="number">20</span>,<span class="number">31</span>,<span class="number">77</span>,<span class="number">81</span>,<span class="number">22</span>];</div><div class="line"><span class="built_in">console</span>.log(heapSort(arr));<span class="comment">//[10, 13, 20, 22, 30, 31, 35, 46, 60, 65, 65, 77, 81, 91, 96]</span></div></pre></td></tr></table></figure>
-<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>所谓归并就是将两个或者两个以上的有序表合成一个新的有序表。<br>递归形式的算法在形式上较为简洁但实用性较差，与快速排序和堆排序相比，归并排序的最大特点是，它是一种稳定的排序方法。</p>
-<ul>
-<li>最佳情况：T(n) = O(n) </li>
-<li>最差情况：T(n) = O(nlogn) </li>
-<li>平均情况：T(n) = O(nlogn)</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span>(<span class="params">arr</span>) </span>&#123;  </div><div class="line">    <span class="comment">//采用自上而下的递归方法</span></div><div class="line">    <span class="keyword">var</span> len = arr.length;</div><div class="line">    <span class="keyword">if</span>(len &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> arr;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> middle = <span class="built_in">Math</span>.floor(len / <span class="number">2</span>),</div><div class="line">        left = arr.slice(<span class="number">0</span>, middle),</div><div class="line">        right = arr.slice(middle);</div><div class="line">    <span class="keyword">return</span> merge(mergeSort(left), mergeSort(right));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">left, right</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'归并排序耗时'</span>);</div><div class="line">    <span class="keyword">while</span> (left.length &amp;&amp; right.length) &#123;</div><div class="line">        <span class="keyword">if</span> (left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>]) &#123;</div><div class="line">            result.push(left.shift());</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            result.push(right.shift());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (left.length)&#123;</div><div class="line">        result.push(left.shift());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (right.length)&#123;</div><div class="line">        result.push(right.shift());</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'归并排序耗时'</span>);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">3</span>,<span class="number">44</span>,<span class="number">38</span>,<span class="number">5</span>,<span class="number">47</span>,<span class="number">15</span>,<span class="number">36</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">2</span>,<span class="number">46</span>,<span class="number">4</span>,<span class="number">19</span>,<span class="number">50</span>,<span class="number">48</span>];</div><div class="line"><span class="built_in">console</span>.log(mergeSort(arr));</div></pre></td></tr></table></figure>
-<p>将有二个有序数列a[first…mid]和a[mid…last]合并。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergearray</span>(<span class="params">Arr,first,mid,last,tempArr</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i = first, j = mid + <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> m = mid, n = last;</div><div class="line">    <span class="keyword">var</span> k = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (i &lt;= m &amp;&amp; j &lt;= n)&#123;</div><div class="line">        <span class="keyword">if</span> (Arr[i] &lt; Arr[j])&#123;</div><div class="line">            tempArr[k++] = Arr[i++];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            tempArr[k++] = Arr[j++];</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">while</span> (i &lt;= m)&#123;</div><div class="line">        tempArr[k++] = Arr[i++];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (j &lt;= n)&#123;</div><div class="line">        tempArr[k++] = Arr[j++];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)&#123;</div><div class="line">        Arr[first + i] = tempArr[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergesort</span>(<span class="params">Arr,first,last</span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> tempArr=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    <span class="keyword">if</span> (first &lt; last)&#123;</div><div class="line">        <span class="keyword">var</span> mid = (first + last)&gt;&gt;&gt;<span class="number">1</span>;</div><div class="line">        mergesort(Arr, first, mid, tempArr);    <span class="comment">//左边有序</span></div><div class="line">        mergesort(Arr, mid + <span class="number">1</span>, last, tempArr);  <span class="comment">//右边有序</span></div><div class="line">        mergearray(Arr, first, mid, last, tempArr);  <span class="comment">//再将二个有序数列合并</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span>  Arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Arr=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">65</span>,<span class="number">45</span>,<span class="number">98</span>,<span class="number">56</span>,<span class="number">78</span>);</div><div class="line">alert(mergesort(Arr,<span class="number">0</span>,Arr.length<span class="number">-1</span>));</div></pre></td></tr></table></figure></p>
+<p><em>需要注意的是切忌把触发BFC与消除边距折叠等同。</em></p>
+<p>块级格式化上下文，Block formatting context(简称BFC)，规定了块级盒子的渲染布局方式，他在计算盒子高度，margin值计算等地方有区别于其他环境。<br>CSS标准里的描述：</p>
+<blockquote>
+<p>Floats, absolutely positioned elements, block containers (such as inline-blocks, table-cells, and table-captions) that are not block boxes, and block boxes with ‘overflow’ other than ‘visible’ (except when that value has been propagated to the viewport) establish new block formatting contexts for their contents.</p>
+</blockquote>
+<p><strong>BFC有什么特点</strong></p>
+<ol>
+<li>内部盒子会在垂直方向排列</li>
+<li>同一个BFC中的元素可能会发生margin collapse</li>
+<li>BFC就是页面上的一个隔离的独立容器，里外互相不影响</li>
+<li>计算BFC的高度时，考虑BFC所包含的所有元素，连浮动元素也参与计算</li>
+<li>浮动盒区域不叠加到BFC上</li>
+</ol>
+<p><strong>什么元素会触发产生一个新的BFC</strong></p>
+<ol>
+<li>根元素 <html></html></li>
+<li>float属性不为none</li>
+<li>position为absolute或fixed</li>
+<li>display为inline­block, table­cell, table­caption, flex, inline­flex</li>
+<li>overflow不为visible<br>认真看下面的例子：<br><img src="http://a2.qpic.cn/psb?/V141cV081qNE1l/OV*4V6VbyWRgiwtiTtypN7*QhG7D1CapRGtgMPcFnl4!/m/dGkBAAAAAAAAnull&amp;bo=XQImAQAAAAADB1o!&amp;rf=photolist&amp;t=5" alt="此处输入图片的描述"><br><strong>我们可以用BFC来干嘛</strong></li>
+<li>清除浮动</li>
+<li>阻止边距折叠</li>
+<li>用于布局，什么两栏自适应高度之类的</li>
+</ol>
+<p><strong>BFC兼容性</strong><br>IE6，7不支持BFC，而是使用私有属性hasLayout。表现上来看hasLayout和BFC相似，触发hasLayout条件与BFC相似，另外需要为元素设置IE特有的CSS属性zoom:1;<br>zoom用于设置或检索元素的缩放比例，值为1即使用元素实际尺寸，使用zoom既可以触发hasLayout又不会对元素产生其他影响，相对来说更加方便</p>
+<p><strong>collapsing margins（边距折叠）</strong></p>
+<p>什么时候发生外边距折叠：垂直方向上的处于同一个BFC上的相邻外边距。</p>
+<p>相邻意味着没有被padding、border、行框和clearance分隔开（clearance就是clear引起的位移，比如一个浮动元素50px高，他后面跟了一个设置了clear的元素，假如clear起作用，并且在垂直方向上将这个元素向下推离了。那么被移动的这50px就是clearance，如果后一个元素自带60px的上外边距，那么即使设置了clear，也不会产生推移，也就没有clearance）。</p>
+<p>相邻也意味着多种情况，只要处于同一个BFC当中，父元素的上外边距就会和第一个子元素的上外边距重叠。如果父元素其height为auto其下外边距也会最后一个子元素的下外边距重叠。对于min-height计算值为0的情况，比如说一个没有内容没有高度没有边框没有padding的div，其自身的上下边距也会也会重叠，这也就是自身的上下边距相邻。同时在这种情况下，如果这个0高元素上没有clearance，他还可以后续元素的外边距甚至是父元素的下外边距重叠。</p>
+<p>但是如果有clearance，则不会与父元素的下外边距重叠。这个有clearance的特例情况在IE和FireFox下有，Chrome下只要有clear，不管有没有推出clearance都不会和父元素的下外边距重叠。</p>
+<p>上面说明白了是处于同一个BFC中才发生外边距折叠。而在一个元素上触发BFC，是为该元素的子元素新建了一个BFC，而这个元素并没有被包含在这个新BFC中，因此两个相邻的发生边距折叠的兄弟元素，分别在他们身上触发BFC并不会取消边距折叠。</p>
+<p>不发生外边距折叠的情况：浮动元素、inline-block 元素、绝对定位元素的 margin 不会和垂直方向上其他元素的 margin 折叠。</p>
+<p>这里看起来跟会触发BFC的情况很相似，但是其实还是差距很大的，所以一定要区分BFC和边距重叠。最好单独记忆不发生外边距重叠的情况。</p>
+<p><strong>CSS定位方案</strong><br>css布局宏观上来说是受定位方案影响，定位方案包括普通流，浮动，定位</p>
+<p>普通流<br>元素按照其在 HTML 中的位置顺序决定排布的过程。并且这种过程遵循标准的描述只要不是float和绝对定位方式布局的，都在普通流里面。<br>浮动</p>
+<p>浮动框不在文档的普通流中，浮动的流会漂浮在普通的流上面。浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。</p>
+<p>定位</p>
+<ol>
+<li>相对定位在普通流之中，是相对于它在普通流中的位置中进行移动，元素占据原来位置</li>
+<li>绝对定位脱离普通流，不占据空间相对于距离它最近的那个已定位的祖先(相对/绝对)元素决定的。</li>
+<li>固定定位，相对于浏览器窗口定位，脱离普通流，不占据空间</li>
+</ol>
 
       
 
@@ -235,7 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BFC</a>
         		</li>
       		
 		</ul>
@@ -247,7 +268,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
+        			<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
@@ -302,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/29/常见算法汇总（二）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/08/BFC与外边距折叠/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +337,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/30/常见算法汇总（三）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          常见js算法汇总(三)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/28/常见算法汇总（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常见算法汇总(一)</div>
+    <a href="/2017/04/05/设计模式（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js设计模式(二)</div>
       <i class="icon-circle-right"></i>
     </a>
   
