@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: BFC | 前端学习</title>
+  <title>浏览器是如何渲染网页 | 前端学习</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习">
-<meta property="og:url" content="http://yoursite.com/tags/BFC/index.html">
+  <meta name="description" content="渲染网页时，不同的浏览器引擎运行起来会有些许差异，针对特定浏览器的具体内容更加复杂，现在总结一下一些共同的特点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器是如何渲染网页">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/浏览器是如何渲染网页/index.html">
 <meta property="og:site_name" content="前端学习">
+<meta property="og:description" content="渲染网页时，不同的浏览器引擎运行起来会有些许差异，针对特定浏览器的具体内容更加复杂，现在总结一下一些共同的特点。">
+<meta property="og:updated_time" content="2017-05-03T02:24:11.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习">
+<meta name="twitter:title" content="浏览器是如何渲染网页">
+<meta name="twitter:description" content="渲染网页时，不同的浏览器引擎运行起来会有些许差异，针对特定浏览器的具体内容更加复杂，现在总结一下一些共同的特点。">
   
     <link rel="alternative" href="/atom.xml" title="前端学习" type="application/atom+xml">
   
@@ -169,71 +173,239 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浏览器是如何渲染网页" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/08/BFC与外边距折叠/" class="archive-article-date">
-  	<time datetime="2017-04-08T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/08/BFC与外边距折叠/">BFC</a>
+    <h1 class="article-title" itemprop="name">
+      浏览器是如何渲染网页
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/02/浏览器是如何渲染网页/" class="archive-article-date">
+  	<time datetime="2017-05-02T05:05:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>渲染网页时，不同的浏览器引擎运行起来会有些许差异，针对特定浏览器的具体内容更加复杂，现在总结一下一些共同的特点。</em><br><a id="more"></a> </p>
+</blockquote>
+<h1 id="先了解一下浏览器是如何对网页进行渲染的："><a href="#先了解一下浏览器是如何对网页进行渲染的：" class="headerlink" title="先了解一下浏览器是如何对网页进行渲染的："></a>先了解一下浏览器是如何对网页进行渲染的：</h1><ol>
+<li><p>浏览器将从服务器获取的HTML文档构建成文档对象模型DOM(Document Object Model).</p>
+</li>
+<li><p>载入和解析样式，构成层叠样式表模型CSSOM(CSS Object Model).</p>
+</li>
+<li><p>在DOM和CSSOM之上，渲染树(rendering tree)将会被创建，代表一系列将被渲染的对象（这在Webkit内核中被称为renderer或者渲染对象render object，在Gecko内核中被称为框架frame）。渲染树映射除了不可见元素（例如<head>或者含有display:none;的标签）外的所有DOM结构。每一段文本字符串都将划分在不同的渲染对象中，每一个渲染对象都包含了它相应的DOM对象以及计算后的样式。换句话讲，渲染树是DOM的直观表示。</head></p>
+</li>
+<li><p>渲染树的每个元素包含的内容都是计算过的，它被称之为布局layout.浏览器使用一种流式处理的方法，只需要一次pass绘制操作就可以布局所有的元素（tables需要多次pass绘制，pass表示像素处理和顶点处理）。最后布局完成，渲染树将转化为屏幕上的实际内容，这一步被称为绘制painting.</p>
+</li>
+</ol>
+<h1 id="重绘Repaint"><a href="#重绘Repaint" class="headerlink" title="重绘Repaint"></a>重绘Repaint</h1><p>当页面元素样式的改变不影响元素在文档流中的位置时（例如background-color,border-color,visibility）,浏览器只会将新样式赋予元素并进行重绘操作。</p>
+<h1 id="回流Reflow"><a href="#回流Reflow" class="headerlink" title="回流Reflow"></a>回流Reflow</h1><p>当改变影响文档内容或者结构，或者元素位置时，回流操作就会被触发，一般有以下几种情况：</p>
+<ul>
+<li>DOM操作（对元素的增删改，顺序变化等）；</li>
+<li>内容变化，包括表单区域内的文本改变；</li>
+<li>CSS属性的更改或重新计算；</li>
+<li>增删样式表内容；</li>
+<li>修改class属性；</li>
+<li>浏览器窗口变化（滚动或缩放）；</li>
+<li>伪类样式激活（:hover等）</li>
+</ul>
+<h1 id="浏览器如何优化渲染"><a href="#浏览器如何优化渲染" class="headerlink" title="浏览器如何优化渲染"></a>浏览器如何优化渲染</h1><p>浏览器本身会尽可能地减少其重绘或回流的次数，只更改必要的元素。例如一个position设置为absolute/fixed的元素的更改只会影响其本身和其子元素，而static的元素变化则会影响其之后的所有页面元素。</p>
+<p>另外一项优化的技术则是在JavaScript代码运行时，浏览器会缓存所有的变化，然后只通过一次pass绘制操作来应用这些更改。例如下面这段代码只会触发一次重绘和回流：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $div = $(<span class="string">'div'</span>);</div><div class="line">$div.css(<span class="string">'padding'</span>,<span class="string">'2px'</span>);<span class="comment">//触发回流和重绘</span></div><div class="line">$div.css(<span class="string">'color'</span>,<span class="string">'red'</span>);<span class="comment">//触发重绘</span></div><div class="line">$div.css(<span class="string">'margin'</span>,<span class="string">'5px'</span>);<span class="comment">//触发回流和重绘</span></div><div class="line"><span class="comment">//最终只有一次回流和重绘被触发</span></div></pre></td></tr></table></figure></p>
+<p>然而，根据我们之前提到过的，获取某个元素的属性将会触发强制回流。比如我们在刚才的代码中加上一句读取元素属性的操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $div = $(<span class="string">'div'</span>);</div><div class="line">$div.css(<span class="string">'padding'</span>,<span class="string">'2px'</span>);</div><div class="line">$div.css(<span class="string">'padding'</span>);<span class="comment">//这里会强制回流</span></div><div class="line">$div.css(<span class="string">'color'</span>,<span class="string">'red'</span>);</div><div class="line">$div.css(<span class="string">'margin'</span>,<span class="string">'5px'</span>);</div></pre></td></tr></table></figure></p>
+<p>结果就会有两次回流发生。因此，我们应该尽量合并读取元素属性的操作来优化性能。</p>
+<p>当然也有我们不得不触发强制回流的情况。比如说对同一个元素的margin-left属性进行两次操作——开始的时候赋值100px的距离，之后为了实现动画效果，再加上transition属性将距离改变到50px.</p>
+<p>我们先定义一个CSS类：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.has-transition&#123;</div><div class="line">    -webkit-transition: margin-left <span class="number">1</span>s ease-out;</div><div class="line"> -moz-transition: margin-left <span class="number">1</span>s ease-out;</div><div class="line">   -o-transition: margin-left <span class="number">1</span>s ease-out;</div><div class="line">      transition: margin-left <span class="number">1</span>s ease-out;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之后再对页面元素进行操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//元素含有has-transition类</span></div><div class="line">$target_ele = $(<span class="string">'#$target_eleid'</span>);</div><div class="line"></div><div class="line"><span class="comment">//移除has-transition类</span></div><div class="line">$target_ele.removeClass(<span class="string">'has-transition'</span>);</div><div class="line"></div><div class="line"><span class="comment">//这里属性的改变没有动画</span></div><div class="line">$target_ele.css(<span class="string">'margin-left'</span>,<span class="number">80</span>);</div><div class="line"></div><div class="line"><span class="comment">//再加上has-transition类</span></div><div class="line">$target_ele.addClass(<span class="string">'has-transition'</span>);</div><div class="line"></div><div class="line"><span class="comment">//这里属性的改变没有动画</span></div><div class="line">$target_ele.css(<span class="string">'margin-left'</span>,<span class="number">40</span>);</div></pre></td></tr></table></figure></p>
+<p>但事实上这段代码并不会像注释描述的那样运作，每条语句的操作将被缓存，只有结果会在页面上显示，所以我们就需要手动进行一次强制回流：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//元素含有has-transition类</span></div><div class="line">$target_ele = $(<span class="string">'#$target_eleid'</span>);</div><div class="line"></div><div class="line"><span class="comment">//移除has-transition类</span></div><div class="line">$target_ele.removeClass(<span class="string">'has-transition'</span>);</div><div class="line"></div><div class="line"><span class="comment">//这里属性的改变没有动画</span></div><div class="line">$target_ele.css(<span class="string">'margin-left'</span>,<span class="number">80</span>);</div><div class="line"></div><div class="line">$target_ele.css(<span class="string">'padding'</span>);<span class="comment">//**这里触发强制回流**</span></div><div class="line"></div><div class="line"><span class="comment">//再加上has-transition类</span></div><div class="line">$target_ele.addClass(<span class="string">'has-transition'</span>);</div><div class="line"></div><div class="line"><span class="comment">//这里属性的改变没有动画</span></div><div class="line">$target_ele.css(<span class="string">'margin-left'</span>,<span class="number">40</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="优化渲染效率的几条最佳实践"><a href="#优化渲染效率的几条最佳实践" class="headerlink" title="优化渲染效率的几条最佳实践"></a>优化渲染效率的几条最佳实践</h1><p>根据我查阅的一些资料，总结出了几条优化建议：</p>
+<p>合法地书写HTML和CSS，不要忘了文档编码类型。样式文件应当在 <head> 标签中，脚本文件在 </head><body> 结束前。<br>简化并优化你的CSS选择器（有些人可能CSS预处理器用习惯了从来不关注这一点）。将嵌套层减少到最小。<br>CSS选择器根据其优先级具有不同的运行效率（从快到慢）：</body></p>
+<ul>
+<li>ID选择器： #id</li>
+<li>类选择器： .class</li>
+<li>标签选择器： div</li>
+<li>相邻选择器： a + i</li>
+<li>子元素选择器： ul &gt; li</li>
+<li>通用选择器： *</li>
+<li>属性选择器： input[type=”text”]</li>
+<li>伪类选择器： a:hover</li>
+</ul>
+<p>浏览器中CSS选择器是从右到左进行匹配的（为什么浏览器要从右到左匹配样式选择器），这也是为什么越短的选择器运行越快的原因（别提通用选择器，它会遍历所有元素）：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div * &#123;... ...&#125; //no</div><div class="line">.list li&#123;... ...&#125; //no</div><div class="line">.list-item&#123;... ...&#125; //yes</div><div class="line">#list .list-item&#123;... ...&#125; //yes</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>在你的脚本代码中，尽量减少DOM操作。缓存所有的内容，包括属性和对象（如果他们需要被复用的话）。尽量将元素缓存到本地之后再进行操作，最后再添加到DOM当中。</p>
+</li>
+<li><p>如果你使用jQuery进行DOM操作的话，最好遵循jQuery最佳实践。</p>
+</li>
+<li><p>修改元素样式时，更改其class属性是性能最高的方法。你的选择器越有针对性越好（这同样也有助于分离页面样式和逻辑）。</p>
+</li>
+<li><p>尽量只对 position 为 absolute/fixed 的元素设置动画。</p>
+</li>
+<li><p>在页面滚动时禁用 :hover 样式效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.disable-hover&#123;</div><div class="line">    pointer-events: none    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.body,timer;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    clearTimeout(timer);</div><div class="line">    <span class="keyword">if</span>(!body.classList.contains(<span class="string">'disable-hover'</span>))&#123;</div><div class="line">        body.classList.add(<span class="string">'disable-hover'</span>)</div><div class="line">    &#125;</div><div class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        body.classList.remove(<span class="string">'disable-hover'</span>)</div><div class="line">    &#125;,<span class="number">500</span>);</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>关于本文<br>译者：@余博伦<br>译文：<a href="https://zhuanlan.zhihu.com/p/25554352" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/25554352</a><br>作者：@Alexander Skutin<br>原文：What Every Frontend Developer Should Know About Webpage Rendering</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BFC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">渲染</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/css/" class="article-tag-list-link color4">css</a>
+        			<a href="/categories/web/" class="article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/02/浏览器是如何渲染网页/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/04/28/Sublime text3安装LiveReload/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sublime text3安装LiveReload</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
+
+  
+  <div class="duoshuo">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+	var cloudTieConfig = {
+	  url: document.location.href, 
+	  sourceId: "",
+	  productKey: "2f8bd6b3a8bc46148e88eb29012249f2",
+	  target: "cloud-tie-wrapper"
+	};
+	var yunManualLoad = true;
+	Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+
+  
+
+
 
 
           </div>
@@ -253,9 +425,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
