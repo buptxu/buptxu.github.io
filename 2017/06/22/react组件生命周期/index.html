@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>常见js算法汇总(二) | 前端学习</title>
+  <title>react组件的生命周期 | 前端学习</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="接着上一篇博客,选择排序与归并排序">
+  <meta name="description" content="react组件的生命周期及钩子函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见js算法汇总(二)">
-<meta property="og:url" content="http://yoursite.com/2017/03/29/常见算法汇总（二）/index.html">
+<meta property="og:title" content="react组件的生命周期">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/react组件生命周期/index.html">
 <meta property="og:site_name" content="前端学习">
-<meta property="og:description" content="接着上一篇博客,选择排序与归并排序">
-<meta property="og:updated_time" content="2017-03-29T03:32:49.669Z">
+<meta property="og:description" content="react组件的生命周期及钩子函数">
+<meta property="og:updated_time" content="2017-09-05T08:57:50.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见js算法汇总(二)">
-<meta name="twitter:description" content="接着上一篇博客,选择排序与归并排序">
+<meta name="twitter:title" content="react组件的生命周期">
+<meta name="twitter:description" content="react组件的生命周期及钩子函数">
   
     <link rel="alternative" href="/atom.xml" title="前端学习" type="application/atom+xml">
   
@@ -173,20 +173,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-常见算法汇总（二）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react组件生命周期" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      常见js算法汇总(二)
+      react组件的生命周期
     </h1>
   
 
         
-        <a href="/2017/03/29/常见算法汇总（二）/" class="archive-article-date">
-  	<time datetime="2017-03-29T03:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-29</time>
+        <a href="/2017/06/22/react组件生命周期/" class="archive-article-date">
+  	<time datetime="2017-06-22T09:10:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
 </a>
         
       </header>
@@ -194,31 +194,43 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p><em>接着上一篇博客,选择排序与归并排序</em><br><a id="more"></a> </p>
-<h1 id="选择法排序"><a href="#选择法排序" class="headerlink" title="选择法排序"></a>选择法排序</h1><p>选择法主要有三种：</p>
+<p><em>react组件的生命周期及钩子函数</em><br><a id="more"></a> </p>
 </blockquote>
-<hr>
-<p>. 简单的选择排序：<br>其实基本的思想就是从待排序的数组中选择最小或者最大的，放在起始位置，然后从剩下的数组中选择最小或者最大的排在这公司数的后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, min, temp , count=data.length;</div><div class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="comment">// find the minimum</span></div><div class="line">        min = i;</div><div class="line">        <span class="keyword">for</span> (j = i+<span class="number">1</span>; j &lt; count; j++)&#123;    </div><div class="line">            <span class="keyword">if</span> (data[j] &lt; data[min])&#123; </div><div class="line">                min = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// swap data[i] and data[min]</span></div><div class="line">        temp = data[i];</div><div class="line">        data[i] = data[min];</div><div class="line">        data[min] = temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。</p>
+<p>一个React组件的生命周期分为三个部分：实例化、存在期和销毁时</p>
+<h1 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h1><h2 id="首次实例化："><a href="#首次实例化：" class="headerlink" title="首次实例化："></a>首次实例化：</h2><h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>在组件渲染前调用，在为组件创建constructor的时候需要先                                使用super(props)后再设置state,否则会有bug。</p>
+<h3 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h3><p>在完成首次渲染之前调用，此时仍可以修改组件的state。</p>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><p>必选的方法，创建虚拟DOM，该方法具有特殊的规则：</p>
 <ul>
-<li>树型排序：<br>又称锦标赛排序，首先对n个元素进行两两比较，然后在其中[n/2]个较小者再进行两两比较如此重复直至选出最小的关键字的纪录为止。（可用完全二差树表示）。缺点：辅助空间需求过大，和“最大值”进行多余比较<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-</li>
+<li>只能通过this.props和this.state访问数据。</li>
+<li>可以返回null,false或任何React组件。</li>
+<li>只能出现一个顶级组件（不能返回数组）。</li>
+<li>不能改变组件的状态。</li>
+<li>不能修改DOM的输出。<h3 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h3>真是的DOM被渲染出来后调用，该方法可通过this.getDOMNode()访问到真是的DOM元素。此时已可以使用其他类库来操作这个DOM。在服务端中，该方法不会被调用。</li>
 </ul>
-<ul>
-<li>堆排序：（不适用于纪录数较少的文件）</li>
+<h2 id="实例化完成后的更新："><a href="#实例化完成后的更新：" class="headerlink" title="实例化完成后的更新："></a>实例化完成后的更新：</h2><ul>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
 </ul>
-<p>最佳情况：T(n) = O(nlogn)<br>最差情况：T(n) = O(nlogn)<br>平均情况：T(n) = O(nlogn)</p>
-<p><1>.将初始待排序关键字序列(R1,R2….Rn)构建成大顶堆，此堆为初始的无序区；</1></p>
-<p><2>.将堆顶元素R[1]与最后一个元素R[n]交换，此时得到新的无序区(R1,R2,……Rn-1)和新的有序区(Rn),且满足R[1,2…n-1]&lt;=R[n]；</2></p>
-<p><3>.由于交换后新的堆顶R[1]可能违反堆的性质，因此需要对当前无序区(R1,R2,……Rn-1)调整为新堆，然后再次将R[1]与无序区最后一个元素交换，得到新的无序区(R1,R2….Rn-2)和新的有序区(Rn-1,Rn)。不断重复此过程直到有序区的元素个数为n-1，则整个排序过程完成。</3></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*方法说明：堆排序</span></div><div class="line">@param  array 待排序数组*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'堆排序耗时'</span>);</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(array).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span>) &#123;</div><div class="line">        <span class="comment">//建堆</span></div><div class="line">        <span class="keyword">var</span> heapSize = array.length, temp;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="built_in">Math</span>.floor(heapSize / <span class="number">2</span>) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            heapify(array, i, heapSize);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//堆排序</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = heapSize - <span class="number">1</span>; j &gt;= <span class="number">1</span>; j--) &#123;</div><div class="line">            temp = array[<span class="number">0</span>];</div><div class="line">            array[<span class="number">0</span>] = array[j];</div><div class="line">            array[j] = temp;</div><div class="line">            heapify(array, <span class="number">0</span>, --heapSize);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">'堆排序耗时'</span>);</div><div class="line">        <span class="keyword">return</span> array;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'array is not an Array!'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*方法说明：维护堆的性质</span></div><div class="line">@param  arr 数组</div><div class="line">@param  x   数组下标</div><div class="line">@param  len 堆大小*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapify</span>(<span class="params">arr, x, len</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(arr).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span> &amp;&amp; <span class="keyword">typeof</span> x === <span class="string">'number'</span>)&#123;</div><div class="line">        <span class="keyword">var</span> l = <span class="number">2</span> * x + <span class="number">1</span>, r = <span class="number">2</span> * x + <span class="number">2</span>, largest = x, temp;</div><div class="line">        <span class="keyword">if</span> (l &lt; len &amp;&amp; arr[l] &gt; arr[largest]) &#123;</div><div class="line">            largest = l;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (r &lt; len &amp;&amp; arr[r] &gt; arr[largest]) &#123;</div><div class="line">            largest = r;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (largest != x) &#123;</div><div class="line">            temp = arr[x];</div><div class="line">            arr[x] = arr[largest];</div><div class="line">            arr[largest] = temp;</div><div class="line">            heapify(arr, largest, len);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'arr is not an Array or x is not a number!'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">91</span>,<span class="number">60</span>,<span class="number">96</span>,<span class="number">13</span>,<span class="number">35</span>,<span class="number">65</span>,<span class="number">46</span>,<span class="number">65</span>,<span class="number">10</span>,<span class="number">30</span>,<span class="number">20</span>,<span class="number">31</span>,<span class="number">77</span>,<span class="number">81</span>,<span class="number">22</span>];</div><div class="line"><span class="built_in">console</span>.log(heapSort(arr));<span class="comment">//[10, 13, 20, 22, 30, 31, 35, 46, 60, 65, 65, 77, 81, 91, 96]</span></div></pre></td></tr></table></figure>
-<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>所谓归并就是将两个或者两个以上的有序表合成一个新的有序表。<br>递归形式的算法在形式上较为简洁但实用性较差，与快速排序和堆排序相比，归并排序的最大特点是，它是一种稳定的排序方法。</p>
-<ul>
-<li>最佳情况：T(n) = O(n) </li>
-<li>最差情况：T(n) = O(nlogn) </li>
-<li>平均情况：T(n) = O(nlogn)</li>
+<h1 id="存在期"><a href="#存在期" class="headerlink" title="存在期"></a>存在期</h1><h2 id="组件已存在时的状态改变"><a href="#组件已存在时的状态改变" class="headerlink" title="组件已存在时的状态改变"></a>组件已存在时的状态改变</h2><h3 id="●-componentWillReceiveProps"><a href="#●-componentWillReceiveProps" class="headerlink" title="● componentWillReceiveProps"></a>● componentWillReceiveProps</h3><p>组件接收到新的props时调用，并将其作为参数nextProps使用，此时可以更改组件props及state。</p>
+<h3 id="●-shouldComponentUpdate"><a href="#●-shouldComponentUpdate" class="headerlink" title="● shouldComponentUpdate"></a>● shouldComponentUpdate</h3><p>组件是否应当渲染新的props或state，返回false表示跳过后续的生命周期方法，通常不需要使用以避免出现bug。在出现应用的瓶颈时，可通过该方法进行适当的优化。在首次渲染期间或调用了forceUpdate方法后，该方法不会被调用。</p>
+<h3 id="●-componentWillUpdate"><a href="#●-componentWillUpdate" class="headerlink" title="● componentWillUpdate"></a>● componentWillUpdate</h3><p>接收到新的props或state后，进行渲染之前调用，此时不允许更新props或state。</p>
+<h3 id="●-render"><a href="#●-render" class="headerlink" title="● render"></a>● render</h3><h3 id="●-componentDidUpdate"><a href="#●-componentDidUpdate" class="headerlink" title="● componentDidUpdate"></a>● componentDidUpdate</h3><p>完成渲染新的props或state后调用，此时可以访问新的DOM元素。</p>
+<h1 id="销毁-amp-清理期"><a href="#销毁-amp-清理期" class="headerlink" title="销毁&amp;清理期"></a>销毁&amp;清理期</h1><h3 id="●-componentWillUnmount"><a href="#●-componentWillUnmount" class="headerlink" title="● componentWillUnmount"></a>● componentWillUnmount</h3><p>组件被移除之前调用，可以用于做一些清理工作，在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器。</p>
+<p>生命周期总共提供的是7个不同的API。</p>
+<h1 id="其他API："><a href="#其他API：" class="headerlink" title="其他API："></a>其他API：</h1><ul>
+<li>setState</li>
+<li>forceUpdate</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span>(<span class="params">arr</span>) </span>&#123;  </div><div class="line">    <span class="comment">//采用自上而下的递归方法</span></div><div class="line">    <span class="keyword">var</span> len = arr.length;</div><div class="line">    <span class="keyword">if</span>(len &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> arr;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> middle = <span class="built_in">Math</span>.floor(len / <span class="number">2</span>),</div><div class="line">        left = arr.slice(<span class="number">0</span>, middle),</div><div class="line">        right = arr.slice(middle);</div><div class="line">    <span class="keyword">return</span> merge(mergeSort(left), mergeSort(right));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">left, right</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="built_in">console</span>.time(<span class="string">'归并排序耗时'</span>);</div><div class="line">    <span class="keyword">while</span> (left.length &amp;&amp; right.length) &#123;</div><div class="line">        <span class="keyword">if</span> (left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>]) &#123;</div><div class="line">            result.push(left.shift());</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            result.push(right.shift());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (left.length)&#123;</div><div class="line">        result.push(left.shift());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (right.length)&#123;</div><div class="line">        result.push(right.shift());</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'归并排序耗时'</span>);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">3</span>,<span class="number">44</span>,<span class="number">38</span>,<span class="number">5</span>,<span class="number">47</span>,<span class="number">15</span>,<span class="number">36</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">2</span>,<span class="number">46</span>,<span class="number">4</span>,<span class="number">19</span>,<span class="number">50</span>,<span class="number">48</span>];</div><div class="line"><span class="built_in">console</span>.log(mergeSort(arr));</div></pre></td></tr></table></figure>
-<p>将有二个有序数列a[first…mid]和a[mid…last]合并。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergearray</span>(<span class="params">Arr,first,mid,last,tempArr</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i = first, j = mid + <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> m = mid, n = last;</div><div class="line">    <span class="keyword">var</span> k = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (i &lt;= m &amp;&amp; j &lt;= n)&#123;</div><div class="line">        <span class="keyword">if</span> (Arr[i] &lt; Arr[j])&#123;</div><div class="line">            tempArr[k++] = Arr[i++];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            tempArr[k++] = Arr[j++];</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">while</span> (i &lt;= m)&#123;</div><div class="line">        tempArr[k++] = Arr[i++];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (j &lt;= n)&#123;</div><div class="line">        tempArr[k++] = Arr[j++];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)&#123;</div><div class="line">        Arr[first + i] = tempArr[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergesort</span>(<span class="params">Arr,first,last</span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> tempArr=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    <span class="keyword">if</span> (first &lt; last)&#123;</div><div class="line">        <span class="keyword">var</span> mid = (first + last)&gt;&gt;&gt;<span class="number">1</span>;</div><div class="line">        mergesort(Arr, first, mid, tempArr);    <span class="comment">//左边有序</span></div><div class="line">        mergesort(Arr, mid + <span class="number">1</span>, last, tempArr);  <span class="comment">//右边有序</span></div><div class="line">        mergearray(Arr, first, mid, last, tempArr);  <span class="comment">//再将二个有序数列合并</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span>  Arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Arr=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">65</span>,<span class="number">45</span>,<span class="number">98</span>,<span class="number">56</span>,<span class="number">78</span>);</div><div class="line">alert(mergesort(Arr,<span class="number">0</span>,Arr.length<span class="number">-1</span>));</div></pre></td></tr></table></figure></p>
+<h1 id="类属性："><a href="#类属性：" class="headerlink" title="类属性："></a>类属性：</h1><ul>
+<li>defaultProps</li>
+<li>displayName</li>
+</ul>
+<h1 id="实例属性："><a href="#实例属性：" class="headerlink" title="实例属性："></a>实例属性：</h1><ul>
+<li>props</li>
+<li>state</li>
+</ul>
 
       
 
@@ -253,7 +265,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组件</a>
         		</li>
       		
 		</ul>
@@ -265,7 +277,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
+        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -320,7 +332,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/29/常见算法汇总（二）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/22/react组件生命周期/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -334,18 +346,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/30/常见算法汇总（三）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/04/react组件间通信/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          常见js算法汇总(三)
+          react组件间通信
         
       </div>
     </a>
   
   
-    <a href="/2017/03/28/常见算法汇总（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常见算法汇总(一)</div>
+    <a href="/2017/05/22/字符串的相关用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字符串的相关用法</div>
       <i class="icon-circle-right"></i>
     </a>
   
