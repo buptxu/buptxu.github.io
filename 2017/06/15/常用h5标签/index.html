@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/4 | 前端学习</title>
+  <title>常见的h5标签总结 | 前端学习</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端学习">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+  <meta name="description" content="**">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的h5标签总结">
+<meta property="og:url" content="http://yoursite.com/2017/06/15/常用h5标签/index.html">
 <meta property="og:site_name" content="前端学习">
+<meta property="og:description" content="**">
+<meta property="og:updated_time" content="2017-09-05T10:11:26.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习">
+<meta name="twitter:title" content="常见的h5标签总结">
+<meta name="twitter:description" content="**">
   
     <link rel="alternative" href="/atom.xml" title="前端学习" type="application/atom+xml">
   
@@ -175,316 +179,291 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-常用h5标签" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见的h5标签总结
+    </h1>
+  
+
+        
+        <a href="/2017/06/15/常用h5标签/" class="archive-article-date">
+  	<time datetime="2017-06-15T09:10:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>**<br><a id="more"></a> </p>
+</blockquote>
+<h3 id="语义化HTML：用最恰当的HTML元素标记的内容。"><a href="#语义化HTML：用最恰当的HTML元素标记的内容。" class="headerlink" title="语义化HTML：用最恰当的HTML元素标记的内容。"></a>语义化HTML：用最恰当的HTML元素标记的内容。</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>1 提升可访问性；</li>
+<li>2 SEO；</li>
+<li>3 结构清晰，利于维护；</li>
+</ul>
+<h4 id="通用容器："><a href="#通用容器：" class="headerlink" title="通用容器："></a>通用容器：</h4><p>div——块级通用容器；span——短语内容无语义容器。</p>
+<p>如果语义不合适，还是老实用div吧。   </p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt; title&gt;&lt; /title&gt;：</div></pre></td></tr></table></figure>
+<p>简短、描述性、唯一（提升搜索引擎排名）。<br>搜索引擎会将title作为判断页面主要内容的指标，有效的title应该包含几个与页面内容密切相关的关键字，建议将title核心内容放在前60个字符中。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt; hn&gt;&lt; /hn&gt;</div></pre></td></tr></table></figure>
+<p>h1~h6分级标题，用于创建页面信息的层级关系。对于搜索引擎而言，如果标题与搜索词匹配，这些标题就会被赋予很高的权重，尤其是h1。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt;&lt;/header&gt;</div></pre></td></tr></table></figure>
+<p>页眉通常包括网站标志、主导航、全站链接以及搜索框。<br>也适合对页面内部一组介绍性或导航性内容进行标记。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;nav&gt;&lt;/nav&gt;</div></pre></td></tr></table></figure>
+<p>标记导航，仅对文档中重要的链接群使用。<br>html5规范不推荐对辅助性页脚链接使用nav，除非页脚再次显示顶级全局导航、或者包含招聘信息等重要链接。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;main&gt;&lt;/main&gt;</div></pre></td></tr></table></figure>
+<p>页面主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;article&gt;&lt;/article&gt;</div></pre></td></tr></table></figure>
+<p>包含像报纸一样的内容…是这么理解的，表示文档、页面、应用或一个独立的容器。<br>article可以嵌套article，只要里面的article与外面的是部分与整体的关系。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;section&gt;&lt;/section&gt;</div></pre></td></tr></table></figure>
+<p>具有相似主题的一组内容，比如网站的主页可以分成介绍、新闻条目、联系信息等条块。如果只是为了添加样式，请用div！</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;aside&gt;&lt;/aside&gt;</div></pre></td></tr></table></figure>
+<p>指定附注栏，包括引述、侧栏、指向文章的一组链接、广告、友情链接、相关产品列表等。如果放在main内，应该与所在内容密切相关。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;footer&gt;&lt;/footer&gt;</div></pre></td></tr></table></figure>
+<p>页脚，只有当父级是body时，才是整个页面的页脚。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;small&gt;&lt;/small&gt;</div></pre></td></tr></table></figure>
+<p>指定细则，输入免责声明、注解、署名、版权。<br>         只适用于短语，不要用来标记“使用条款”、“隐私政策”等长的法律声明。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;strong&gt;&lt;/strong&gt;</div></pre></td></tr></table></figure>
+<p>表示内容重要性。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;em&gt;&lt;/em&gt;</div></pre></td></tr></table></figure>
+<p>标记内容着重点（大量用于提升段落文本语义）。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;mark&gt;&lt;/mark&gt;</div></pre></td></tr></table></figure>
+<p>突出显示文本（yellow），提醒读者。在Html5中em是表示强调的唯一元素，而strong则表示重要程度。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;b&gt;&lt;/b&gt;</div></pre></td></tr></table></figure>
+<p>出于实用目的提醒读者的一块文字，不传达任何额外的重要性</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
+<p>不同于其他文字的文,这个翻译真的是······ 显示斜体文本效果</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;figure&gt;&lt;/figure&gt;</div></pre></td></tr></table></figure>
+<p>创建图（默认有40px左右margin）。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;figcaption&gt;&lt;/figcaption&gt;</div></pre></td></tr></table></figure>
+<p>figure的标题，必须是figure内嵌的第一个或者最后一个元素。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;cite&gt;&lt;/cite&gt;</div></pre></td></tr></table></figure>
+<p>指明引用或者参考，如图书的标题，歌曲、电影、等的名称，演唱会、音乐会、规范、报纸、或法律文件等。只用于参考源本身，而不是从中引述。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;blockquoto&gt;&lt;/blockquoto&gt;</div></pre></td></tr></table></figure>
+<p>引述文本，默认新的一行显示。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;q&gt;&lt;/q&gt;</div></pre></td></tr></table></figure>
+<p>短的引述（跨浏览器问题，尽量避免使用）。<br>         可以对blockquoto和q元素使用cite属性（不是cite元素！），对搜索引擎自动化工具有用。cite=“URL”引述来源地址。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;time&gt;&lt;/time&gt;</div></pre></td></tr></table></figure>
+<p>标记时间。datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。</p>
+<p>不再相关的时间用s标签。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;abbr&gt;&lt;/abbr&gt;</div></pre></td></tr></table></figure>
+<p>解释缩写词。使用title属性可提供全称，只在第一次出现时使用就ok。</p>
+<p>abbr[title]{ border-bottom:1px dotted #000; }</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;dfn&gt;&lt;/dfn&gt;</div></pre></td></tr></table></figure>
+<p>定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;address&gt;&lt;/address&gt;</div></pre></td></tr></table></figure>
+<p>作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。<br>如果提供整个页面的作者联系信息，一般放在页面级footer里。不能包含文档或者文档等其他内容。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;del&gt;&lt;/del&gt;</div></pre></td></tr></table></figure>
+<p>移除的内容。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;ins&gt;&lt;/ins&gt;</div></pre></td></tr></table></figure>
+<p>添加的内容。少有的既可以包围块级，又可以包围短语内容的元素。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;code&gt;&lt;/code&gt;</div></pre></td></tr></table></figure>
+<p>标记代码。包含示例代码或者文件名<br>&lt; &lt;  &gt; &gt;</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;pre&gt;&lt;/pre&gt;</div></pre></td></tr></table></figure>
+<p>预格式化文本。保留文本固有的换行和空格。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meter&gt;&lt;/meter&gt;</div></pre></td></tr></table></figure>
+<p>表示分数的值或者已知范围的测量结果。如投票结果。<br>        例如：<meter value="0.2" title="”Miles“">20%completed</meter></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;progress&gt;&lt;/progress&gt;</div></pre></td></tr></table></figure>
+<p>完成进度。可通过js动态更新value。<progress></progress></p>
+<hr>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/28/Sublime text3安装LiveReload/" class="archive-article-date">
-  	<time datetime="2017-04-28T05:05:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/28/Sublime text3安装LiveReload/">Sublime text3安装LiveReload</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/web/" class="article-tag-list-link color4">web</a>
+        			<a href="/categories/html/" class="article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/15/常用h5标签/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/24/js同步异步/" class="archive-article-date">
-  	<time datetime="2017-04-24T05:05:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-24</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/24/js同步异步/">js同步异步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/19/JSON的一些理解/" class="archive-article-date">
-  	<time datetime="2017-04-19T03:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/19/JSON的一些理解/">JSON的一些理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSON</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/08/BFC与外边距折叠/" class="archive-article-date">
-  	<time datetime="2017-04-08T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/08/BFC与外边距折叠/">BFC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BFC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/05/设计模式（二）/" class="archive-article-date">
-  	<time datetime="2017-04-05T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/05/设计模式（二）/">js设计模式(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/01/设计模式（一）/" class="archive-article-date">
-  	<time datetime="2017-04-01T09:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/01/设计模式（一）/">js设计模式(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2017/06/22/react组件生命周期/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          react组件的生命周期
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/05/22/字符串的相关用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字符串的相关用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
+
+  
+  <div class="duoshuo">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+	var cloudTieConfig = {
+	  url: document.location.href, 
+	  sourceId: "",
+	  productKey: "2f8bd6b3a8bc46148e88eb29012249f2",
+	  target: "cloud-tie-wrapper"
+	};
+	var yunManualLoad = true;
+	Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+
+  
+
+
 
 
           </div>
@@ -504,8 +483,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
